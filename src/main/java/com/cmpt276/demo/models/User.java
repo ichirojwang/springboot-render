@@ -14,7 +14,7 @@ public class User {
     private int uid;
     private String name;
     private String password;
-    private int size;
+    private int size; 
     public User() {
     }
     public User(String name, String password, int size) {
