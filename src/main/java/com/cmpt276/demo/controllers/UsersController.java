@@ -44,5 +44,15 @@ public class UsersController {
         return "users/addedUser";
     }
     
+    @PostMapping("/users/remove")
+    public String removeUser(@RequestParam int id, HttpServletResponse response) {
+        System.out.println("REMOVE user");
+        // if (!userRepo.existsById(id)) {
+        //     throw new UserNotFoundException("User with id " + id + " not found");
+        // }
+        userRepo.deleteById(id);
+        response.setStatus(200);
+        return "users/removedUser";
+    }
     
 }
