@@ -14,14 +14,21 @@
                 <h1>USERS</h1>
                 <ul>
                     <li th:each="user:${us}">
-                        <span th:style="'font-size:'+${user.size}+'pt'" th:text="${user.name}"></span> <br>
-                        <span th:text="${user.uid}"></span> <br>
-                        <span th:text="${user.password}"></span>
-                        <div th:switch="${user.name}">
-                            <span th:case="'bobby'">HEY! It's the instructor!!!</span>
-                            <span th:case="'steve'">Uh oh! It's Steve</span>
-                            <span th:case="*">General user</span>
-                        </div>
+                        <form action="/users/remove" method="post">
+                            <input type="hidden" name="uid" th:value="${user.uid}">
+                       
+                            <span th:style="'font-size:'+${user.size}+'pt'" th:text="${user.name}"></span> <br>
+                            <span th:text="${user.uid}"></span> <br>
+                            <span th:text="${user.password}"></span>
+                            <div th:switch="${user.name}">
+                                <span th:case="'bobby'">HEY! It's the instructor!!!</span>
+                                <span th:case="'steve'">Uh oh! It's Steve</span>
+                                <span th:case="*">General user.</span>
+                            </div>
+                            <button class="link-primary link-offset-2 link-underline-opacity-50 link-underline-opacity-100-hover" type="submit">
+                                DELETE
+                            </button> 
+                        </form>
                     </li>
                 </ul>
             </div>
